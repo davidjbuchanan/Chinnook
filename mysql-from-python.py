@@ -1,10 +1,13 @@
 import os
 import pymysql
 
+import env
 
+print(os.environ.get("EMAIL"))
+print(os.environ.get("PASSWORD"))
 
 # Connect to the database
-connection = pymysql.connect(host='localhost',
+connection = pymysql.connect(host=os.environ.get("EXAMPLE"),
                              
                              db='Chinook')
 
@@ -18,3 +21,4 @@ try:
 finally:
     # Close the connection, regardless of whether or not the above was successful
     connection.close()
+
